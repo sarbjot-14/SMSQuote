@@ -1,4 +1,10 @@
 /*make functions getQuote, getRandomQuote, send message*/
+//export {getRandomQuote};
+
+exports.quoteAPI = (str) => str.toUpperCase()
+
+exports.getRandomQuote = getRandomQuote
+
 const fetch = require('node-fetch');
 
 var express = require("express"),
@@ -10,13 +16,21 @@ app.listen(port, () => {
   console.log("listening on port", port);
 });
 
+
+
 const randomQuote_url = 'http://localhost:8080/id/1';
 
 async function getRandomQuote() {
     const response = await fetch(randomQuote_url);
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
+    return data
+    //console.log("hello");
 }
 
-//getRandomQuote();
-export {getRandomQuote};
+//getRandomQuote()
+
+
+
+
+
